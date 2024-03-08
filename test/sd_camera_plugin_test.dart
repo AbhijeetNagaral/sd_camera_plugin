@@ -12,7 +12,7 @@ class MockSdCameraPluginPlatform
   Future<String?> getCameraPlugin() => Future.value('42');
 
   @override
-  Future addNewCameraThroughWifi() {
+  Future addNewCameraThroughWifi(String pWifiSsid, String pWifiPassword) {
     // TODO: implement addNewCameraThroughWifi
     throw UnimplementedError();
   }

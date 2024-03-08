@@ -27,7 +27,7 @@ abstract class SdCameraPluginPlatform extends PlatformInterface {
     throw UnimplementedError('getCameraPlugin() has not been implemented.');
   }
 
-  Future addNewCameraThroughWifi() {
+  Future addNewCameraThroughWifi(String pWifiSsid, String pPassword) {
     throw UnimplementedError('addNewCameraThroughWifi() has not been implemented.');
   }
 }

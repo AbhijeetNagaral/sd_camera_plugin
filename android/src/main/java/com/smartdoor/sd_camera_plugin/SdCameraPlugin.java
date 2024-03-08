@@ -1,9 +1,7 @@
 package com.smartdoor.sd_camera_plugin;
 
-import static com.smartdoor.utils.MethodName.*;
-
+import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -20,9 +18,15 @@ public class SdCameraPlugin implements FlutterPlugin, MethodCallHandler {
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private MethodChannel channel;
+  private Context applicationContext;
+
+
+  SDCameraImplementation sdCameraImplementation = new SDCameraImplementation();
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
+    this.applicationContext = flutterPluginBinding.getApplicationContext();
+
     channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "sd_camera_plugin");
     channel.setMethodCallHandler(this);
   }
@@ -33,7 +37,10 @@ public class SdCameraPlugin implements FlutterPlugin, MethodCallHandler {
 
     switch (call.method){
       case "CAMERA_LOGIN":
-        Log.d("myTag", "Camera login invoked");
+        String mWifiSsid = call.argument("wifiSsid");
+        String mPassword = call.argument("password");
+        Log.d("myTag", "Camera login invoked" + mWifiSsid + mPassword);
+        sdCameraImplementation.addCameraThroughWifi(this.applicationContext, mWifiSsid, mPassword);
         break;
 
     }

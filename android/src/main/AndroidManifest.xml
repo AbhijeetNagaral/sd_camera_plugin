@@ -1,3 +1,47 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.smartdoor.sd_camera_plugin">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.smartdoor.sd_camera_plugin">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application>
+        <meta-data
+            android:name="APP_UUID"
+            android:value="65e99c5af876f14f67cad9b1" />
+        <meta-data
+            android:name="APP_KEY"
+            android:value="82a6c91f27c0cf620f8968ffd450cd73" />
+        <meta-data
+            android:name="APP_SECRET"
+            android:value="8aa263cfe2644063a41b75ed98c9e17b" />
+        <meta-data
+            android:name="APP_MOVECARD"
+            android:value="4" />
+        <activity
+            android:name=".SdCameraPlugin"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="Instantiatable">
+
+            <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter> -->
+        </activity>
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
 </manifest>

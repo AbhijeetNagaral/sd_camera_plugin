@@ -16,7 +16,10 @@ class MethodChannelSdCameraPlugin extends SdCameraPluginPlatform {
   }
 
   @override
-  Future addNewCameraThroughWifi() async{
-    await methodChannel.invokeMethod<String>('CAMERA_LOGIN');
+  Future addNewCameraThroughWifi(String pWifiSsid, String pPassword) async{
+    await methodChannel.invokeMethod<String>('CAMERA_LOGIN', {
+      "wifiSsid": pWifiSsid,
+      "password": pPassword
+    });
   }
 }

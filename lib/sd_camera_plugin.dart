@@ -6,10 +6,8 @@ class SdCameraPlugin {
     return SdCameraPluginPlatform.instance.getCameraPlugin();
   }
 
-  Future addNewCameraThroughWifi()async{
-    
-
-    await SdCameraPluginPlatform.instance.addNewCameraThroughWifi();
+  Future addNewCameraThroughWifi(String pWifiSsid, String pPassword)async{
+    await SdCameraPluginPlatform.instance.addNewCameraThroughWifi( pWifiSsid, pPassword);
   }
 
 }
